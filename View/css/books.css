@@ -1,0 +1,82 @@
+body {
+    font-family: 'Open Sans',sans-serif;
+}
+
+.container {
+    width: 1300px;
+    height: 800px;
+    padding: 50px 50px;
+    overflow: auto;
+    transition: all .5s;
+}
+
+.book-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: rgba(0, 0, 0, 0.829);
+    width: 600px;
+    height: auto;
+    text-align: left;
+    color: white;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.book-card img {
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 20%;
+}
+
+.book-card:hover {
+    background-color: rgb(43, 39, 39);
+}
+
+.book-card label {
+    font-size: 20px;
+}
+
+.open-modal {
+    position: absolute;
+    width: 20px;
+}
+
+#side-menu-checkbox:checked ~ .container {
+    transform: translateX(12%);
+}
+
+#modal-loan {
+    display: none;
+}
+
+.open-modal:checked ~ #modal-loan {
+    display: block;
+}
+
+.modal-content {
+    display: grid;
+    grid-template-rows: 1fr;
+    height: 100%;
+    text-align: left;
+    margin-left: 35%;
+}
+
+.modal-content #modal-label {
+    margin-bottom: 13px;
+    font-size: 14px;
+}
+
+.loan-button {
+    width: 70px;
+    height: auto;
+    border-radius: 4px;
+    color: black;
+    background-color: rgb(204, 204, 86);
+    margin-bottom: 20px;
+}
+
+.loan-button:hover {
+    color: white;
+    background-color: rgb(192, 14, 14);
+}

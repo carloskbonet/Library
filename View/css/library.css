@@ -1,0 +1,78 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: rgb(63, 56, 56);
+    position: fixed;
+    font-family: 'Open Sans',sans-serif;
+}
+
+#side-menu-nav {
+    position: fixed;
+    background-color: rgb(34, 28, 28);
+    height: 110%;
+    width: 190px;
+    float: left;
+    margin-left: -10px;
+    margin-top: -10px;
+    transform: translateX(-100%);
+    transition: all .5s;
+}
+
+.side-menu {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 80px;
+    margin-left: 10%;
+}
+
+#side-menu-button {
+    font-size: 22px;
+    width: 150px;
+    height: 40px;
+    border-radius: 1px;
+    color: white;
+    background-color: rgb(56, 33, 97);
+    margin-bottom: 10px;
+}
+
+#side-menu-button:hover {
+    color: rgb(56, 33, 97);
+    background-color: white;
+}
+
+#side-menu-checkbox {
+    display: none;
+}
+
+#side-menu-checkbox:checked ~ nav {
+    transform: translateX(0%);
+}
+
+#side-menu-label {
+    position: fixed;
+    float: left;
+    z-index: 2;
+}
+
+#side-menu-label img {
+    width: 10%;
+}
+
+.disconnect-form {
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.disconnect-button {
+    width: 100px;
+    text-align: center;
+    height: auto;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+}
+
+.disconnect-button:hover {
+    background-color: black;
+    color: white;
+}
