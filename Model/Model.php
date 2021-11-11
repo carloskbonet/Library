@@ -58,6 +58,20 @@ abstract class Model{
         return (pg_fetch_all($result));
     }
 
+    public function read_all_loan(int $id){
+        $this->database_connect();
+        $result = pg_query($this->dbconnection, "SELECT * FROM $this->table where user_id=$id and deleted_at IS NULL ORDER BY ID");
+        $this->disconnect();
+        return (pg_fetch_all($result));
+    }
+
+    public function read_all_historic(int $id){
+        $this->database_connect();
+        $result = pg_query($this->dbconnection, "SELECT * FROM $this->table where user_id=$id and deleted_at IS NOT NULL ORDER BY ID");
+        $this->disconnect();
+        return (pg_fetch_all($result));
+    }
+
     public function authentication(string $email, string $password){
         $this->database_connect();
         $adm_bool = false;
@@ -69,7 +83,7 @@ abstract class Model{
             $_SESSION['password-login'] = $data[0]['password'];
             $_SESSION['email-login'] = $data[0]['email'];
             $_SESSION['fone-login'] = $data[0]['phone'];
-            if($data[0]['is_admin'])
+            if($data[0]['is_admin'] == "t")
                 $adm_bool = true;
             $_SESSION['adm-login'] = $data[0]['is_admin'];
         }

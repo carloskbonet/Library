@@ -7,7 +7,7 @@ class LoanController{
 
     public function __construct(){
         $this->loan = new Loan();
-        $this->id = $_POST['id-loan'];  
+        $this->id = $_POST['id-loan'];
         $date_start = date("Y-m-d H:i:s", time() + 3600*(date("I")));
         $date_devolution = date("Y-m-d H:i:s", strtotime($date_start. ' + 7 days'));
         $this->data_loan = array(
@@ -19,8 +19,13 @@ class LoanController{
     }
 
     public function read_books(){
-        $loans = $this->loan->read_all();
+        $loans = $this->loan->read_all_loan($_SESSION['id-login']);
         include './View/loan.php';
+    }
+
+    public function read_books_historic(){
+        $loans = $this->loan->read_all_historic($_SESSION['id-login']);
+        include './View/historic.php';
     }
 
     public function loan_book(){
@@ -36,9 +41,12 @@ class LoanController{
     }
 
     public function return_book(){
-        $data = array(
-            "deleted_at"=>date("Y-m-d H:i:s", time() + 3600*(date("I")))
-        );
+        $data = array("deleted_at"=>date("Y-m-d H:i:s", time() + 3600*(date("I"))));
         $this->loan->update($_POST['id-devolution'] , $data);
+
+        $data_book = array("status"=>'available');
+        (new Book())->update($_POST['id-book'],$data_book);
+
+        header("Location: /historic");
     }
 }

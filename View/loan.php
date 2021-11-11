@@ -12,7 +12,7 @@ include("./View/home.php");
 <body>
     <div class="container">
         <?php foreach ($loans as $loan) { ?>
-            <a>
+            <a for="open-modal">
                 <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
                     <img src="../View/resources/images/icon-book.png">
                     <label>Nome do Livro</label>
@@ -25,9 +25,12 @@ include("./View/home.php");
                             <br>
                             <?php if ($loan['deleted_at'] == '') { ?>
                                 <form action="/loan-return" method="POST">
+                                    <input type="hidden" name="id-book" value="<?= $loan['book_id'] ?>">    
                                     <input type="hidden" name="id-devolution" value="<?= $loan['id'] ?>">
                                     <button type="submit" class="loan-button">Devolver</button>
                                 </form>
+                            <?php } else { ?>
+                                <label id="modal-label">Devolvido em:<br> <?= $loan['deleted_at'] ?></label>
                             <?php } ?>
                         </div>
                     </div>
