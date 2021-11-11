@@ -39,7 +39,7 @@ class UserController{
                 header("location: /books");
                 break;
             case "f":
-                $_SESSION['login'] = "f"; 
+                $_SESSION['login'] = "f";
                 header("location: /historic");
                 break;
             default:
@@ -50,7 +50,10 @@ class UserController{
 
     public function signup(){
         if(
-            strlen($this->data_signup['name']) > 2
+            strlen($this->data_signup['name']) > 2 and
+            strlen($this->data_signup['email']) > 6 and
+            strlen($this->data_signup['password']) > 5 and
+            strlen($this->data_signup['phone']) > 7
         ){
             $this->user->create($this->data_signup);
             header("location: /");

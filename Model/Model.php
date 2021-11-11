@@ -77,11 +77,15 @@ abstract class Model{
         return $adm_bool;
     }
 
-    public function read_loan(){
+    public function read_loan(int $id){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT * FROM $this->table WHERE status='available' ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT * FROM books WHERE id=$id AND status='available'");
         $this->disconnect();
-        return (pg_fetch_all($result));
+        if(pg_num_rows($result)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 ?>

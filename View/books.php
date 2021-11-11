@@ -26,8 +26,11 @@ include("./View/home.php");
                             <label id="modal-label">Categoria:<br> <?= $book['category'] ?></label>
                             <label id="modal-label">Status:<br> <?= $book['status'] ?></label>
                             <br>
-                            <?php if($book['status']=='available'){ ?>
-                            <button class="loan-button">Alugar</button>
+                            <?php if ($book['status'] == 'available') { ?>
+                                <form action="/loan-book" method="POST">
+                                    <input type="hidden" name="id-loan" value="<?= $book['id'] ?>">
+                                    <button type="submit" class="loan-button">Alugar</button>
+                                </form>
                             <?php } ?>
                         </div>
                     </div>

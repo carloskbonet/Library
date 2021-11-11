@@ -11,11 +11,26 @@ include("./View/home.php");
 
 <body>
     <div class="container">
-        <?php foreach ($books as $book) { ?>
+        <?php foreach ($loans as $loan) { ?>
             <a>
-                <div class="book-card" onclick="<?php $id = $book['id']; ?>">
+                <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
                     <img src="../View/resources/images/icon-book.png">
-                    <label> <?= $book['name'] ?> </label>
+                    <label>Nome do Livro</label>
+
+                    <input type="checkbox" id="open-modal" class="open-modal">
+                    <div id="modal-loan">
+                        <div class="modal-content">
+                            <label id="modal-label">Empréstimo:<br> <?= $loan['date_start'] ?></label>
+                            <label id="modal-label">Devolução:<br> <?= $loan['date_end'] ?></label>
+                            <br>
+                            <?php if ($loan['deleted_at'] == '') { ?>
+                                <form action="/loan-return" method="POST">
+                                    <input type="hidden" name="id-devolution" value="<?= $loan['id'] ?>">
+                                    <button type="submit" class="loan-button">Devolver</button>
+                                </form>
+                            <?php } ?>
+                        </div>
+                    </div>
                 </div>
             </a>
         <?php } ?>

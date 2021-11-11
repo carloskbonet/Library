@@ -1,6 +1,6 @@
 <?php
 require './Model/Book.php';
-
+session_start();
 class BookController{
     public $book , $id;
 
@@ -13,10 +13,5 @@ class BookController{
     public function read_books(){
         $books = $this->book->read_all();
         include './View/books.php';
-    }
-
-    public function read_books_loan(){
-        $books = $this->book->read_loan();
-        include './View/loan.php';
     }
 }
