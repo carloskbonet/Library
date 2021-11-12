@@ -5,7 +5,7 @@ require __DIR__ . '/Controller/BookController.php';
 require __DIR__ . '/Controller/UserController.php';
 require __DIR__ . '/Controller/LoanController.php';
 
-if (isset($_SESSION['login'])) {
+if (!$_SESSION['login']) {
     switch ($request) {
         case '/':
             require './View/index.php';
@@ -21,8 +21,14 @@ if (isset($_SESSION['login'])) {
             break;
     }
 } else {
-    if($_SESSION['login'] == "admin"){
+    if($_SESSION['login'] == "t"){
         switch($request){
+            case '/books':
+                (new BookController())->read_books();
+                break;
+            case '/disconnect':
+                (new UserController())->end_session();
+                break;
             default:
                 header("Location: /Testes");
                 break;

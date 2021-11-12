@@ -34,13 +34,13 @@ class UserController{
     public function login(){
         $user = $this->user->authentication($this->email_login,$this->password_login);
         switch($user){
-            case "t":
-                $_SESSION['login'] = "admin";
+            case true:
+                $_SESSION['login'] = "t";
                 header("location: /books");
                 break;
-            case "f":
-                $_SESSION['login'] = "user";
-                header("location: /historic");
+            case false:
+                $_SESSION['login'] = "f";
+                header("location: /books");
                 break;
             default:
                 header("location: /");
