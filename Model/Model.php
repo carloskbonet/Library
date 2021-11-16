@@ -72,6 +72,20 @@ abstract class Model{
         return (pg_fetch_all($result));
     }
 
+    public function read_all_loan_adm(){
+        $this->database_connect();
+        $result = pg_query($this->dbconnection, "SELECT * FROM $this->table where deleted_at IS NULL ORDER BY ID");
+        $this->disconnect();
+        return (pg_fetch_all($result));
+    }
+
+    public function read_all_historic_adm(){
+        $this->database_connect();
+        $result = pg_query($this->dbconnection, "SELECT * FROM $this->table where deleted_at IS NOT NULL ORDER BY ID");
+        $this->disconnect();
+        return (pg_fetch_all($result));
+    }
+
     public function authentication(string $email, string $password){
         $this->database_connect();
         $adm_bool = false;

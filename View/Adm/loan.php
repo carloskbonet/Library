@@ -20,6 +20,7 @@ include("./View/Adm/home.php");
                     <input type="checkbox" id="open-modal" class="open-modal">
                     <div id="modal-loan">
                         <div class="modal-content">
+                            <label id="modal-label">ID do usuário:<br> <?= $loan['user_id'] ?></label>
                             <label id="modal-label">Empréstimo:<br> <?= $loan['date_start'] ?></label>
                             <label id="modal-label">Devolução:<br> <?= $loan['date_end'] ?></label>
                             <br>

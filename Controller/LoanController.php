@@ -29,12 +29,12 @@ class LoanController{
     }
 
     public function read_books_loan_admin(){
-        $loans = $this->loan->read_all_loan($_SESSION['id-login']);
+        $loans = $this->loan->read_all_loan_adm();
         include './View/Adm/loan.php';
     }
 
     public function read_books_historic_admin(){
-        $loans = $this->loan->read_all_historic($_SESSION['id-login']);
+        $loans = $this->loan->read_all_historic_adm();
         include './View/Adm/historic.php';
     }
 
