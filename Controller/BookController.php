@@ -41,16 +41,16 @@ class BookController{
 
     public function delete_book(){
         $this->book->delete($this->id_del);
-        header("Location: /adm/books");
+        header("Location: /books");
     }
 
     public function create_book(){
         $this->book->create($this->data_create);
-        header("Location: /adm/books");
+        header("Location: /books");
     }
 
     public function edit_book(){
         $this->book->update($this->id , $this->data_update);
-        header("Location: /adm/books");
+        header("Location: /books");
     }
 }

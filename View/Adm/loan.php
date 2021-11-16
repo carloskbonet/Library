@@ -15,7 +15,7 @@ include("./View/Adm/home.php");
             <a for="open-modal">
                 <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
                     <img src="../View/resources/images/icon-book.png">
-                    <label>Nome do Livro</label>
+                    <label><?= $loan['name'] ?></label>
 
                     <input type="checkbox" id="open-modal" class="open-modal">
                     <div id="modal-loan">

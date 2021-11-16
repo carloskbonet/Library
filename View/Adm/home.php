@@ -14,9 +14,9 @@
     <input type="checkbox" id="side-menu-checkbox">
     <nav id="side-menu-nav">
         <div class="side-menu">
-            <a href="/adm/books" id="side-menu-button" class="button-book">Livros</a>
-            <a href="/adm/loan" id="side-menu-button" class="button-loan">Empréstimos</a>
-            <a href="/adm/historic" id="side-menu-button" class="button-historic">Histórico</a>
+            <a href="/books" id="side-menu-button" class="button-book">Livros</a>
+            <a href="/loan" id="side-menu-button" class="button-loan">Empréstimos</a>
+            <a href="/historic" id="side-menu-button" class="button-historic">Histórico</a>
 
             <form class="disconnect-form" method="post" action="/disconnect">
                 <input class="disconnect-button" type="submit" value="Desconectar" />

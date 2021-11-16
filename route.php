@@ -21,15 +21,15 @@ if (!$_SESSION['login']) {
             break;
     }
 } else {
-    if($_SESSION['login'] == "t"){
-        switch($request){
-            case '/adm/books':
+    if ($_SESSION['login'] == "t") {
+        switch ($request) {
+            case '/books':
                 (new BookController())->read_books_admin();
                 break;
-            case '/adm/historic':
+            case '/historic':
                 (new LoanController())->read_books_historic_admin();
                 break;
-            case '/adm/loan':
+            case '/loan':
                 (new LoanController())->read_books_loan_admin();
                 break;
             case '/create-book':
@@ -44,11 +44,17 @@ if (!$_SESSION['login']) {
             case '/disconnect':
                 (new UserController())->end_session();
                 break;
+            case '/loan-book':
+                (new LoanController())->loan_book();
+                break;
+            case '/loan-return':
+                (new LoanController())->return_book();
+                break;
             default:
-                header("Location: /adm/books");
+                header("Location: /books");
                 break;
         }
-    }else{
+    } else {
         switch ($request) {
             case '/books':
                 (new BookController())->read_books();
