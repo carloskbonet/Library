@@ -18,7 +18,7 @@ class LoanController{
         );
     }
 
-    public function read_books(){
+    public function read_books_loan(){
         $loans = $this->loan->read_all_loan($_SESSION['id-login']);
         include './View/loan.php';
     }
@@ -26,6 +26,16 @@ class LoanController{
     public function read_books_historic(){
         $loans = $this->loan->read_all_historic($_SESSION['id-login']);
         include './View/historic.php';
+    }
+
+    public function read_books_loan_admin(){
+        $loans = $this->loan->read_all_loan($_SESSION['id-login']);
+        include './View/Adm/loan.php';
+    }
+
+    public function read_books_historic_admin(){
+        $loans = $this->loan->read_all_historic($_SESSION['id-login']);
+        include './View/Adm/historic.php';
     }
 
     public function loan_book(){
