@@ -1,118 +1,42 @@
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: rgb(41, 37, 37);
+    background: rgb(0,0,0);
+background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(46,46,46,1) 15%, rgba(47,47,47,1) 25%, rgba(115,115,115,1) 45%, rgba(255,255,255,1) 50%, rgba(83,83,83,1) 56%, rgba(55,55,55,1) 70%, rgba(32,32,32,1) 85%, rgba(0,0,0,1) 100%);
 }
 
-.login {
-    margin-top: 16%;
-    text-align: left;
+.container{
+height: 100%;
+align-content: center;
 }
 
-.login .login-form {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
 }
 
-#form-field {
-    margin-left: 41%;
-    margin-bottom: 10px;
-    font-family: "Open Sans",sans-serif;
-    font-size: 16px;
-    color: white;
+.card-header h3{
+color: white;
 }
 
-#form-input {
-    border-radius: 5px;
+.input-group-prepend span{
+width: 3vw;
+background-color: #d15727;
+border:0 !important;
 }
 
-#login-button {
-    margin-left: 45.7%;
-    width: 90px;
-    height: 30px;
-    border-radius: 60px;
-    color: white;
-    background-color: rgb(56, 33, 97);
-}
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
 
-#login-button:hover {
-    color: rgb(56, 33, 97);
-    background-color: white;
 }
-
-#register-button {
-    margin-left: 46.5%;
-    width: 70px;
-    height: 25px;
-    border-radius: 10px;
-    color: white;
-    background-color: rgb(170, 19, 19);
-}
-
-#register-button:hover {
-    color: black;
-    background-color: rgb(118, 204, 146);
-}
-
-.login .register #modal {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    text-align: center;
-}
-
-.login .register #modal .form-modal{
-    background-color: rgba(68, 7, 117, 0.966);
-    width: 400px;
-    height: 500px;
-    border-radius: 20px;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-top: -27%;
-    margin-left: 32%;
-    padding: 30px;
-}
-
-.register-form {
-    display: grid;
-    grid-template-rows: 1fr;
-    text-align: center;
-    margin-top: 10%;
-}
-
-#form-field-modal {
-    color: white;
-    font-family: "Open Sans",sans-serif;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-#modal .form-modal #close-button {
-    float: right;
-    border-radius: 30px;
-    width: 30px;
-    background-color: rgb(240, 236, 236);
-    color: black;
-}
-
-#modal .form-modal #close-button:hover {
-    background-color: black;
-    color: rgb(240, 236, 236);
-}
-
-#register-button-modal {
-    margin-left: 39.6%;
-    width: 90px;
-    height: 30px;
-    border-radius: 40px;
-    margin-top: 20px;
-    color: black;
-    background-color: rgb(240, 236, 236);
-}
-
-#register-button-modal:hover {
-    color: white;
-    background-color: rgba(68, 7, 117, 0.966);
-}
-

@@ -13,6 +13,9 @@ if (!$_SESSION['login']) {
         case '/login':
             (new UserController())->login();
             break;
+        case '/store-signup':
+            include './View/Create/register.php';
+            break;
         case '/signup':
             (new UserController())->signup();
             break;
