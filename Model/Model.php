@@ -60,28 +60,28 @@ abstract class Model{
 
     public function read_all_loan(int $id){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.id, b.name FROM $this->table a JOIN books b on (a.book_id = b.id) where a.user_id=$id and a.deleted_at IS NULL ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name FROM $this->table a INNER JOIN books b on (a.book_id = b.id) where a.user_id=$id and a.deleted_at IS NULL ORDER BY ID");
         $this->disconnect();
         return (pg_fetch_all($result));
     }
 
     public function read_all_historic(int $id){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.id, b.name FROM $this->table a JOIN books b on (a.book_id = b.id) where a.user_id=$id and a.deleted_at IS NOT NULL ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name FROM $this->table a INNER JOIN books b on (a.book_id = b.id) where a.user_id=$id and a.deleted_at IS NOT NULL ORDER BY ID");
         $this->disconnect();
         return (pg_fetch_all($result));
     }
 
     public function read_all_loan_adm(){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.id, b.name FROM $this->table a JOIN books b on (a.book_id = b.id) where a.deleted_at IS NULL ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name FROM $this->table a INNER JOIN books b on (a.book_id = b.id) where a.deleted_at IS NULL ORDER BY ID");
         $this->disconnect();
         return (pg_fetch_all($result));
     }
 
     public function read_all_historic_adm(){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.id, b.name FROM $this->table a JOIN books b on (a.book_id = b.id) where a.deleted_at IS NOT NULL ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name FROM $this->table a INNER JOIN books b on (a.book_id = b.id) where a.deleted_at IS NOT NULL ORDER BY ID");
         $this->disconnect();
         return (pg_fetch_all($result));
     }

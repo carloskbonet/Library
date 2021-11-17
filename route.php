@@ -32,6 +32,9 @@ if (!$_SESSION['login']) {
             case '/loan':
                 (new LoanController())->read_books_loan_admin();
                 break;
+            case '/users':
+                (new UserController())->read_users_admin();
+                break;
             case '/create-book':
                 (new BookController())->create_book();
                 break;
@@ -49,6 +52,15 @@ if (!$_SESSION['login']) {
                 break;
             case '/loan-return':
                 (new LoanController())->return_book();
+                break;
+            case '/edit-user':
+                (new UserController())->edit_user();
+                break;
+            case '/delete-user':
+                (new UserController())->delete_user();
+                break;
+            case '/store-user':
+                include './View/Adm/Create/register.php';
                 break;
             default:
                 header("Location: /books");

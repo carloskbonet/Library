@@ -6,7 +6,7 @@ include("./View/home.php");
 <head>
     <title>Books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../View/css/books.css" rel="stylesheet">
+    <link href="../View/css/interface.css" rel="stylesheet">
 </head>
 
 <body>
