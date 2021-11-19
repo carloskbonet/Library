@@ -65,6 +65,9 @@ if (!$_SESSION['login']) {
             case '/store-user':
                 include './View/Adm/Create/register.php';
                 break;
+            case '/store-book':
+                include './View/Adm/Create/register_book.php';
+                break;
             default:
                 header("Location: /books");
                 break;

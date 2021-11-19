@@ -1,4 +1,15 @@
-<div class="container">
+<html>
+<?php
+include './View/home.php';
+include './View/Adm/navbar.php';
+?>
+
+<head>
+    <title>Cadastro de Livro</title>
+</head>
+
+<body>
+    <div class="container">
         <div class="create">
             <button id="store-button" onclick=" document.getElementById('modal').style.display='block'">Criar</button>
 
@@ -30,3 +41,6 @@
             </div>
         </div>
     </div>
+</body>
+
+</html>
