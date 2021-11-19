@@ -5,40 +5,54 @@ include("./View/home.php");
 
 <head>
     <title>Loan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../View/css/interface.css" rel="stylesheet">
+    <style>
+        th {
+            color: white;
+        }
+
+        td {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <?php foreach ($loans as $loan) { ?>
-            <a for="open-modal">
-                <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
-                    <img src="../View/resources/images/icon-book.png">
-                    <label>Nome do Livro</label>
-
-                    <input type="checkbox" id="open-modal" class="open-modal">
-                    <div id="modal-loan">
-                        <div class="modal-content">
-                            <label id="modal-label">Empréstimo:<br> <?= $loan['date_start'] ?></label>
-                            <label id="modal-label">Devolução:<br> <?= $loan['date_end'] ?></label>
-                            <br>
+        <table class="table overflow-auto" style="margin-top: 2vh;">
+            <thead>
+                <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Empréstimo</th>
+                    <th scope="col">Devolver em</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($loans as $loan) { ?>
+                    <a>
+                        <tr>
+                            <th><img src="../View/resources/images/icon-book.png" style="width: 2vw;"></th>
+                            <td><?= $loan['name'] ?></td>
+                            <td><?= $loan['date_start'] ?></td>
+                            <td><?= $loan['date_end'] ?></td>
                             <?php if ($loan['deleted_at'] == '') { ?>
                                 <form action="/loan-return" method="POST">
-                                    <input type="hidden" name="id-book" value="<?= $loan['book_id'] ?>">    
+                                    <input type="hidden" name="id-book" value="<?= $loan['book_id'] ?>">
                                     <input type="hidden" name="id-devolution" value="<?= $loan['id'] ?>">
-                                    <button type="submit" class="loan-button">Devolver</button>
+                                    <td><button type="submit" class="btn btn-light w-10">Devolver</button></td>
                                 </form>
                             <?php } else { ?>
-                                <label id="modal-label">Devolvido em:<br> <?= $loan['deleted_at'] ?></label>
+                                <td><?= $loan['deleted_at'] ?></td>
                             <?php } ?>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        <?php } ?>
+                        </tr>
+                    </a>
 
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
+
 </body>
 
 </html>

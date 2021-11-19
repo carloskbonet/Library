@@ -5,31 +5,46 @@ include("./View/home.php");
 
 <head>
     <title>Historic</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../View/css/interface.css" rel="stylesheet">
+    <style>
+        th {
+            color: white;
+        }
+
+        td {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <?php foreach ($loans as $loan) { ?>
-            <a for="open-modal">
-                <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
-                    <img src="../View/resources/images/icon-book.png">
-                    <label>Nome do Livro</label>
+<div class="container">
+        <table class="table overflow-auto" style="margin-top: 2vh;">
+            <thead>
+                <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Empréstimo</th>
+                    <th scope="col">Devolver em</th>
+                    <th scope="col">Devolvido em</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($loans as $loan) { ?>
+                    <a>
+                        <tr>
+                            <th><img src="../View/resources/images/icon-book.png" style="width: 2vw;"></th>
+                            <td><?= $loan['name'] ?></td>
+                            <td><?= $loan['date_start'] ?></td>
+                            <td><?= $loan['date_end'] ?></td>
+                            <td><?= $loan['deleted_at'] ?></td>
+                        </tr>
+                    </a>
 
-                    <input type="checkbox" id="open-modal" class="open-modal">
-                    <div id="modal-loan">
-                        <div class="modal-content">
-                            <label id="modal-label">Empréstimo:<br> <?= $loan['date_start'] ?></label>
-                            <label id="modal-label">Devolução:<br> <?= $loan['date_end'] ?></label>
-                            <label id="modal-label">Devolvido em:<br> <?= $loan['deleted_at'] ?></label>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        <?php } ?>
-
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
+
 </body>
 
 </html>
