@@ -6,37 +6,53 @@ include './View/Adm/navbar.php';
 
 <head>
     <title>Cadastro de Livro</title>
+    <link href="../View/css/login.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <div class="create">
-            <button id="store-button" onclick=" document.getElementById('modal').style.display='block'">Criar</button>
+        <div class="d-flex justify-content-center h-100">
 
-            <div id="modal">
-                <div class="form-modal">
-                    <button id="close-button" onclick="document.getElementById('modal').style.display='none'">X</button>
-                    <form action="/create-book" method="post" class="create-form">
-                        <label id="form-field-modal"> Nome :<br>
-                            <input type="text" name="name" id="form-input" required></label>
+            <div class="card" style="width: 400px;">
+                <div class="overflow-auto card-body">
+                <form action="/create-book" method="post">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-book"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="name" placeholder="Nome" required>
+                    </div>
 
-                        <label id="form-field-modal"> Descrição :<br>
-                            <input type="text" name="description" id="form-input" required></label>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-align-left"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="description" placeholder="Descrição" required>
+                    </div>
 
-                        <label id="form-field-modal"> Autor :<br>
-                            <input type="text" name="author" id="form-input" required></label>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-ad"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="author" placeholder="Autor" required>
+                    </div>
 
-                        <label id="form-field-modal"> Categoria :<br>
-                            <input type="text" name="category" id="form-input" required></label>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="category" placeholder="Categoria" required>
+                    </div>
 
-                        <label id="form-field-modal"> Status :<br>
-                            <select id="form-select-modal" name="status">
-                                <option>available</option>
-                                <option>unavailable</option>
-                            </select></label>
+                    <div class="input-group form-group">
+                        <select class="form-select w-100 h-100" name="status">
+                            <option>available</option>
+                            <option>unavailable</option>
+                        </select>
+                    </div>
 
-                        <button type="submit" class="button-create">Criar novo livro</button>
-                    </form>
+                    <button type="submit" class="btn float-right btn-outline-secondary">Criar novo livro</button>
+                </form>
                 </div>
             </div>
         </div>

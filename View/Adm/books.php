@@ -18,8 +18,8 @@ include("./View/Adm/navbar.php");
 </head>
 
 <body>
-    <div class="container position-inline">
-        <table class="table overflow-auto" style="margin-top: 11vh;">
+    <div class="container position-inline overflow-auto">
+        <table class="table" style="margin-top: 11vh;">
             <thead>
                 <tr>
                     <th scope="col">Imagem</th>
@@ -39,11 +39,13 @@ include("./View/Adm/navbar.php");
                     <a>
                         <tr>
                             <td><img src="../View/resources/images/icon-book.png" style="width: 3vw;"></td>
-                            <th scope="row">
-                                <h5><?= $book['id'] ?></h5>
-                            </th>
-                            <form action="" method="POST">
+                            <form action="/edit-book" method="POST">
+                                <th scope="row">
+                                    <h5><?= $book['id'] ?></h5>
+                                </th>
+
                                 <div class="input-group">
+                                    <input type="hidden" name="id" value="<?= $book['id'] ?>">
                                     <td><input class="form-control" type="text" name="name-edit" value="<?= $book['name'] ?>" required></td>
                                     <td><input class="form-control" type="text" name="description-edit" value="<?= $book['description'] ?>" required></td>
                                     <td><input class="form-control" type="text" name="author-edit" value="<?= $book['author'] ?>" required></td>
@@ -74,7 +76,7 @@ include("./View/Adm/navbar.php");
                             <?php if ($book['status'] == 'available') { ?>
                                 <form action="/loan-book" method="POST">
                                     <input type="hidden" name="id-loan" value="<?= $book['id'] ?>">
-                                    <td><button type="button" class="btn btn-light w-10"><i class="fas fa-folder-plus"></i></button></td>
+                                    <td><button type="submit" class="btn btn-light w-10"><i class="fas fa-folder-plus"></i></button></td>
                                 </form>
                             <?php } else { ?>
                                 <td><button type="button" class="btn btn-light w-10" disabled><i class="fas fa-folder-plus"></i></button></td>

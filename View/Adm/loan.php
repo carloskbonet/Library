@@ -1,45 +1,61 @@
 <html>
 <?php
-include("./View/Adm/home.php");
+include("./View/home.php");
 ?>
 
 <head>
     <title>Loan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../View/css/interface.css" rel="stylesheet">
+    <style>
+        th {
+            color: white;
+        }
+
+        td {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <?php foreach ($loans as $loan) { ?>
-            <a for="open-modal">
-                <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
-                    <img src="../View/resources/images/icon-book.png">
-                    <label><?= $loan['name'] ?></label>
-
-                    <input type="checkbox" id="open-modal" class="open-modal">
-                    <div id="modal-loan">
-                        <div class="modal-content">
-                            <label id="modal-label">ID do usuário:<br> <?= $loan['user_id'] ?></label>
-                            <label id="modal-label">Empréstimo:<br> <?= $loan['date_start'] ?></label>
-                            <label id="modal-label">Devolução:<br> <?= $loan['date_end'] ?></label>
-                            <br>
-                            <?php if ($loan['deleted_at'] == '') { ?>
-                                <form action="/loan-return" method="POST">
-                                    <input type="hidden" name="id-book" value="<?= $loan['book_id'] ?>">    
-                                    <input type="hidden" name="id-devolution" value="<?= $loan['id'] ?>">
-                                    <button type="submit" class="loan-button">Devolver</button>
-                                </form>
-                            <?php } else { ?>
-                                <label id="modal-label">Devolvido em:<br> <?= $loan['deleted_at'] ?></label>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        <?php } ?>
-
+    <div class="container position-inline overflow-auto">
+        <table class="table" style="margin-top: 11vh;">
+            <thead>
+                <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Data Aluguel</th>
+                    <th scope="col">Devolver Em</th>
+                    <th scope="col">Devolver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($loans as $loan) { ?>
+                    <a>
+                        <tr>
+                            <td><img src="../View/resources/images/icon-book.png" style="width: 3vw;"></td>
+                            <div class="input-group">
+                                <td><?= $loan['name'] ?></td>
+                                <td><?= $loan['user_id'] ?></td>
+                                <td><?= $loan['date_start'] ?></td>
+                                <td><?= $loan['date_end'] ?></td>
+                                <td>
+                                    <?php if ($loan['deleted_at'] == '') { ?>
+                                        <form action="/loan-return" method="POST">
+                                            <input type="hidden" name="id-book" value="<?= $loan['book_id'] ?>">
+                                            <input type="hidden" name="id-devolution" value="<?= $loan['id'] ?>">
+                                            <button type="submit" class="btn btn-light w-10"><i class="fas fa-exchange-alt"></i></button>
+                                        </form>
+                                    <?php } else { ?>
+                                        <label> <?= $loan['deleted_at'] ?></label>
+                                    <?php } ?>
+                                </td>
+                            </div>
+                        </tr>
+                    </a>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </body>
-
 </html>

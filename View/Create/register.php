@@ -6,6 +6,13 @@ include './View/resources/bootstrap_header.php';
 <head>
     <title>Login</title>
     <link href="../View/css/login.css" rel="stylesheet">
+
+    <style>
+        body {
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(46,46,46,1) 15%, rgba(47,47,47,1) 25%, rgba(115,115,115,1) 45%, rgba(255,255,255,1) 50%, rgba(83,83,83,1) 56%, rgba(55,55,55,1) 70%, rgba(32,32,32,1) 85%, rgba(0,0,0,1) 100%);
+}
+    </style>
 </head>
 
 <body>
@@ -31,25 +38,25 @@ include './View/resources/bootstrap_header.php';
                             <input class="form-control" type="email" name="email-signup" placeholder="E-mail">
                         </div>
                         <div class="input-group form-group">
-                        <div class="input-group-prepend">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input class="form-control" type="password" name="password-signup" placeholder="Senha">
                         </div>
                         <div class="input-group form-group">
-                        <div class="input-group-prepend">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input class="form-control" type="password" name="password-confirm-signup" placeholder="Confirmar Senha">
                         </div>
                         <div class="input-group form-group">
-                        <div class="input-group-prepend">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-pen"></i></span>
                             </div>
                             <input class="form-control" type="text" name="name-signup" placeholder="Nome">
                         </div>
                         <div class="input-group form-group">
-                        <div class="input-group-prepend">
+                            <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             </div>
                             <input class="form-control" type="tel" name="phone-signup" placeholder="Telefone">
