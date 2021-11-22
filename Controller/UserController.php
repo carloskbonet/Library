@@ -1,6 +1,6 @@
 <?php
 require './Model/User.php';
-session_start();
+
 class UserController{
     private $user , $user_id , $id , $id_del , $is_admin;
     private $email_login , $password_login , $password_confirmation;
@@ -46,6 +46,11 @@ class UserController{
         $this->id_del = $_POST['id-del'];
     }
 
+    public function read_users(){
+        $users = $this->user->read_all();
+        include './View/Adm/user.php';
+    }
+
     public function login(){
         $user = $this->user->authentication($this->email_login,$this->password_login);
         switch($user){
@@ -78,11 +83,6 @@ class UserController{
     public function end_session(){
         unset($_SESSION["login"]);
         header("location: /");
-    }
-
-    public function read_users_admin(){
-        $users = $this->user->read_all();
-        include './View/Adm/user.php';
     }
 
     public function delete_user(){

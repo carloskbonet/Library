@@ -17,8 +17,8 @@ include("./View/home.php");
 </head>
 
 <body>
-    <div class="container">
-        <table class="table overflow-auto" style="margin-top: 2vh;">
+    <div class="container overflow-auto">
+        <table class="table" style="margin-top: 2vh;">
             <thead>
                 <tr>
                     <th scope="col">Imagem</th>
@@ -40,7 +40,7 @@ include("./View/home.php");
                                 <form action="/loan-return" method="POST">
                                     <input type="hidden" name="id-book" value="<?= $loan['book_id'] ?>">
                                     <input type="hidden" name="id-devolution" value="<?= $loan['id'] ?>">
-                                    <td><button type="submit" class="btn btn-light w-10">Devolver</button></td>
+                                    <td><button type="submit" class="btn btn-light w-10"><i class="fas fa-exchange-alt"></i></button></td>
                                 </form>
                             <?php } else { ?>
                                 <td><?= $loan['deleted_at'] ?></td>

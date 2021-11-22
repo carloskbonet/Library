@@ -36,7 +36,7 @@ if (!$_SESSION['login']) {
                 (new LoanController())->read_books_loan_admin();
                 break;
             case '/users':
-                (new UserController())->read_users_admin();
+                (new UserController())->read_users();
                 break;
             case '/create-book':
                 (new BookController())->create_book();

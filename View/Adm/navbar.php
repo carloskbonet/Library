@@ -19,7 +19,13 @@ include './View/resources/bootstrap_header.php';
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="/store-book">Criar novo Livro <i class="far fa-address-card" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/store-book">Criar Livro <i class="fa fa-book" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/users">Listar Usuários <i class="fas fa-address-card" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/store-book">Criar Usuário <i class="far fa-address-card" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>

@@ -17,8 +17,8 @@ include("./View/home.php");
 </head>
 
 <body>
-    <div class="container">
-        <table class="table overflow-auto" style="margin-top: 2vh;">
+    <div class="container overflow-auto">
+        <table class="table" style="margin-top: 2vh;">
             <thead>
                 <tr>
                     <th scope="col">Imagem</th>
@@ -42,14 +42,15 @@ include("./View/home.php");
                             <td><?= $book['category'] ?></td>
                             <td><?= $book['status'] ?></td>
                             <?php if ($book['status'] == 'available') { ?>
-                                <form method=""></form>
-                                <input type="hidden" name="id-loan" value="<?= $book['id'] ?>">
-                                <td><button type="button" class="btn btn-light w-10" data-bs-toggle="modal" data-bs-target="#myModal"
-                                onclick="selectID(<?= $book['id'] ?>)">
-                                    Alugar
-                                </button></td>
+                                <form action="/loan-book" method="POST">
+                                    <input type="hidden" name="id-loan" value="<?= $book['id'] ?>">
+                                    <td><button type="submit" class="btn btn-light w-10" data-bs-toggle="modal" data-bs-target="#myModal"
+                                    onclick="selectID(<?= $book['id'] ?>)">
+                                    <i class="fas fa-folder-plus"></i>
+                                    </button></td>
+                                </form>
                             <?php } else { ?>
-                                <td><button type="button" class="btn btn-light w-10" disabled>Alugar</button></td>
+                                <td><button type="button" class="btn btn-light w-10" disabled><i class="fas fa-folder-plus"></i></button></td>
                             <?php } ?>
 
                         </tr>

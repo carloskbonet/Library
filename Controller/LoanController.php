@@ -2,7 +2,7 @@
 require './Model/Loan.php';
 
 class LoanController{
-    public $loan , $id , $data_loan;
+    public $loan = null , $id = null , $data_loan = null;
 
 
     public function __construct(){

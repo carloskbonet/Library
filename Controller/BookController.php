@@ -1,6 +1,6 @@
 <?php
 require './Model/Book.php';
-session_start();
+
 class BookController{
     public $book , $id , $data_create , $data_update;
     public $id_del;

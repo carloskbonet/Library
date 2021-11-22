@@ -17,8 +17,8 @@ include("./View/home.php");
 </head>
 
 <body>
-<div class="container">
-        <table class="table overflow-auto" style="margin-top: 2vh;">
+<div class="container overflow-auto">
+        <table class="table" style="margin-top: 2vh;">
             <thead>
                 <tr>
                     <th scope="col">Imagem</th>
