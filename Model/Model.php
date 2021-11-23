@@ -74,14 +74,14 @@ abstract class Model{
 
     public function read_all_loan_adm(){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name FROM $this->table a INNER JOIN books b on (a.book_id = b.id) where a.deleted_at IS NULL ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name, c.id, c.name as name2 FROM $this->table a INNER JOIN books b on (a.book_id = b.id) join users c on (c.id = a.user_id) where a.deleted_at IS NULL");
         $this->disconnect();
         return (pg_fetch_all($result));
     }
 
     public function read_all_historic_adm(){
         $this->database_connect();
-        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name FROM $this->table a INNER JOIN books b on (a.book_id = b.id) where a.deleted_at IS NOT NULL ORDER BY ID");
+        $result = pg_query($this->dbconnection, "SELECT a.id, a.date_start, a.date_end, a.user_id, a.deleted_at, a.book_id, b.name, c.id, c.name as name2 FROM $this->table a INNER JOIN books b on (a.book_id = b.id) join users c on (c.id = a.user_id) where a.deleted_at IS NOT NULL");
         $this->disconnect();
         return (pg_fetch_all($result));
     }

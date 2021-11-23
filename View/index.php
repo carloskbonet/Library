@@ -29,14 +29,14 @@ include './View/resources/bootstrap_header.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input class="form-control" type="mail" name="email" placeholder="E-mail" required>
+                            <input class="form-control" type="mail" name="email" placeholder="E-mail" minlength="8" maxlength="64" required>
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <input class="form-control" type="password" name="password" placeholder="Password" minlength="6" maxlength="32" required>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn float-right btn-outline-secondary" value="Entrar">

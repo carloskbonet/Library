@@ -27,7 +27,7 @@ include './View/resources/bootstrap_header.php';
         <hr>
         <ul class="nav nav-pills flex-column mb-auto" role="tablist">
             <li class="nav-item">
-                <a href="/books" class="active nav-link text-white" data-toggle="pill" role="tab" aria-controls="books" aria-selected="true">
+                <a href="/books" class="nav-link text-white" data-toggle="pill" role="tab" aria-controls="books" aria-selected="true">
                     <svg class="bi me-2" width="16" height="16">
                     </svg>
                     Livros
@@ -55,13 +55,6 @@ include './View/resources/bootstrap_header.php';
         </ul>
 
     </div>
-
-    <script>
-        $(".nav a").on("click", function() {
-            $(".nav").find(".active").removeClass("active");
-            $(this).parent().addClass("active");
-        });
-    </script>
 
 </body>
 

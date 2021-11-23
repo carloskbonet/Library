@@ -24,7 +24,7 @@ include("./View/home.php");
                 <tr>
                     <th scope="col">Imagem</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">User ID</th>
+                    <th scope="col">Usuário</th>
                     <th scope="col">Data Aluguel</th>
                     <th scope="col">Devolver Em</th>
                     <th scope="col">Status da devolução</th>
@@ -37,7 +37,7 @@ include("./View/home.php");
                             <td><img src="../View/resources/images/icon-book.png" style="width: 3vw;"></td>
                             <div class="input-group">
                                 <td><?= $loan['name'] ?></td>
-                                <td><?= $loan['user_id'] ?></td>
+                                <td><?= $loan['name2'] ?></td>
                                 <td><?= $loan['date_start'] ?></td>
                                 <td><?= $loan['date_end'] ?></td>
                                 <td>

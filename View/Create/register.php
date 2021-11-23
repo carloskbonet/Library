@@ -35,31 +35,31 @@ include './View/resources/bootstrap_header.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-at"></i></span>
                             </div>
-                            <input class="form-control" type="email" name="email-signup" placeholder="E-mail">
+                            <input class="form-control" type="email" name="email-signup" placeholder="E-mail" minlength="8" maxlength="64" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input class="form-control" type="password" name="password-signup" placeholder="Senha">
+                            <input class="form-control" type="password" name="password-signup" placeholder="Senha" minlength="6" maxlength="32" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input class="form-control" type="password" name="password-confirm-signup" placeholder="Confirmar Senha">
+                            <input class="form-control" type="password" name="password-confirm-signup" placeholder="Confirmar Senha" minlength="6" maxlength="32" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-pen"></i></span>
                             </div>
-                            <input class="form-control" type="text" name="name-signup" placeholder="Nome">
+                            <input class="form-control" type="text" name="name-signup" placeholder="Nome" minlength="3" maxlength="128" required>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             </div>
-                            <input class="form-control" type="tel" name="phone-signup" placeholder="Telefone">
+                            <input class="form-control" id="phone" name="phone-signup" placeholder="Telefone" minlength="11" maxlength="11" data-inputmask="'alias': 'phonebe'" required />
                         </div>
 
                         <div class="form-group" style="margin-bottom: 5vw;">
@@ -71,6 +71,27 @@ include './View/resources/bootstrap_header.php';
         </div>
     </div>
 
+    <script>
+        $(document).ready(function(){
+$(":input").inputmask();
+
+
+
+$("#phone").inputmask({
+mask: '999 999 9999',
+placeholder: ' ',
+showMaskOnHover: false,
+showMaskOnFocus: false,
+onBeforePaste: function (pastedValue, opts) {
+var processedValue = pastedValue;
+
+//do something with it
+
+return processedValue;
+}
+});
+});
+    </script>
 </body>
 
 </html>
