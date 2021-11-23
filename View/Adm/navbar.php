@@ -8,6 +8,7 @@ include './View/resources/bootstrap_header.php';
         nav {
             margin-left: 18.6vw;
             width: 81.5vw;
+            z-index: 10;
         }
     </style>
 </head>
@@ -25,7 +26,7 @@ include './View/resources/bootstrap_header.php';
                 <a class="nav-link" href="/users">Listar Usuários <i class="fas fa-address-card" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/store-book">Criar Usuário <i class="far fa-address-card" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/store-user-adm">Criar Usuário <i class="far fa-address-card" style="font-size: 2vw;"></i> <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>

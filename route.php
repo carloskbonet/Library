@@ -56,6 +56,9 @@ if (!$_SESSION['login']) {
             case '/loan-return':
                 (new LoanController())->return_book();
                 break;
+            case '/signup':
+                (new UserController())->signup();
+                break;
             case '/edit-user':
                 (new UserController())->edit_user();
                 break;
@@ -64,6 +67,9 @@ if (!$_SESSION['login']) {
                 break;
             case '/store-user':
                 include './View/Adm/Create/register.php';
+                break;
+            case '/store-user-adm':
+                include './View/Adm/Create/register_adm.php';
                 break;
             case '/store-book':
                 include './View/Adm/Create/register_book.php';

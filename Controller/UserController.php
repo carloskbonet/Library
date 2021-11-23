@@ -9,7 +9,7 @@ class UserController{
     public function __construct(){
         $this->user = new User();
 
-        if($_POST['status-edit'] == "true")
+        if($_POST['status'] == "true")
             $this->is_admin = "t";
         else
             $this->is_admin = "f";
@@ -35,7 +35,7 @@ class UserController{
             'email'=>$_POST['email-signup'],
             'password'=>$_POST['password-signup'],
             'phone'=>$_POST['phone-signup'],
-            'is_admin'=>"f"
+            'is_admin'=>$this->is_admin
         );
         $this->password_confirmation = $_POST['password-confirm-signup'];
 
