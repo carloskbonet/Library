@@ -13,7 +13,7 @@ if (!$_SESSION['login']) {
         case '/login':
             (new UserController())->login();
             break;
-        case '/store-signup':
+        case '/show-signup':
             include './View/Create/register.php';
             break;
         case '/signup':
@@ -65,13 +65,10 @@ if (!$_SESSION['login']) {
             case '/delete-user':
                 (new UserController())->delete_user();
                 break;
-            case '/store-user':
-                include './View/Adm/Create/register.php';
-                break;
-            case '/store-user-adm':
+            case '/show-user-adm':
                 include './View/Adm/Create/register_adm.php';
                 break;
-            case '/store-book':
+            case '/show-book':
                 include './View/Adm/Create/register_book.php';
                 break;
             default:

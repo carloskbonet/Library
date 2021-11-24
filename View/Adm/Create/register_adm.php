@@ -20,28 +20,28 @@ include './View/Adm/navbar.php';
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-at"></i></span>
                         </div>
-                        <input class="form-control" type="text" name="email-signup" placeholder="E-mail" required>
+                        <input class="form-control" type="email" name="email-signup" placeholder="E-mail" minlength="8" maxlength="64" required>
                     </div>
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input class="form-control" type="text" name="password-signup" placeholder="Senha" required>
+                        <input class="form-control" type="password" name="password-signup" placeholder="Senha" minlength="6" maxlength="32" required>
                     </div>
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-pen"></i></span>
                         </div>
-                        <input class="form-control" type="text" name="name-signup" placeholder="Nome" required>
+                        <input class="form-control" type="text" name="name-signup" placeholder="Nome" minlength="3" maxlength="128" required>
                     </div>
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
-                        <input class="form-control" type="text" name="phone-signup" placeholder="Telefone" required>
+                        <input class="form-control" type="text" name="phone-signup" id="phone" placeholder="(99) 99999-9999" title="e.g (99) 99999-9999" pattern="^\([0-9]{2}\)\s[0-9]{5}-[0-9]{4}$" required>
                     </div>
 
                     <div class="input-group form-group">
@@ -57,6 +57,8 @@ include './View/Adm/navbar.php';
             </div>
         </div>
     </div>
+
+    <script type="text/javascript" src="./View/resources/JS/phone.js"></script>
 </body>
 
 </html>

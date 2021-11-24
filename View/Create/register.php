@@ -9,9 +9,9 @@ include './View/resources/bootstrap_header.php';
 
     <style>
         body {
-    background: rgb(0,0,0);
-    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(46,46,46,1) 15%, rgba(47,47,47,1) 25%, rgba(115,115,115,1) 45%, rgba(255,255,255,1) 50%, rgba(83,83,83,1) 56%, rgba(55,55,55,1) 70%, rgba(32,32,32,1) 85%, rgba(0,0,0,1) 100%);
-}
+            background: rgb(0, 0, 0);
+            background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(46, 46, 46, 1) 15%, rgba(47, 47, 47, 1) 25%, rgba(115, 115, 115, 1) 45%, rgba(255, 255, 255, 1) 50%, rgba(83, 83, 83, 1) 56%, rgba(55, 55, 55, 1) 70%, rgba(32, 32, 32, 1) 85%, rgba(0, 0, 0, 1) 100%);
+        }
     </style>
 </head>
 
@@ -59,11 +59,32 @@ include './View/resources/bootstrap_header.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             </div>
-                            <input class="form-control" id="phone" name="phone-signup" placeholder="Telefone" minlength="11" maxlength="11" data-inputmask="'alias': 'phonebe'" required />
+                            <input class="form-control" type="text" name="phone-signup" id="phone" placeholder="(99) 99999-9999" title="e.g (99) 99999-9999" pattern="^\([0-9]{2}\)\s[0-9]{5}-[0-9]{4}$" required>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 5vw;">
-                            <input type="submit" class="btn float-right btn-outline-secondary" value="Registrar">
+                            <input type="button" class="btn float-right btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#myModal" value="Registrar">
+                        </div>
+
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Confirmar Cadastro</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                  
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Confirmar</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -71,26 +92,32 @@ include './View/resources/bootstrap_header.php';
         </div>
     </div>
 
-    <script>
-        $(document).ready(function(){
-$(":input").inputmask();
 
+    <script type="text/javascript" src="./View/resources/JS/phone.js"></script>
 
+    <script type="text/javascript">
+        var $form = $(this).closest('form');
+        var modalConfirm = function(callback) {
+            $("#btn-confirm").on("click", function() {
+                $("#mi-modal").modal('show');
+            });
+            $("#modal-btn-si").on("click", function() {
+                callback(true);
+                $("#mi-modal").modal('hide');
+            });
+            $("#modal-btn-no").on("click", function() {
+                callback(false);
+                $("#mi-modal").modal('hide');
+            });
+        };
 
-$("#phone").inputmask({
-mask: '999 999 9999',
-placeholder: ' ',
-showMaskOnHover: false,
-showMaskOnFocus: false,
-onBeforePaste: function (pastedValue, opts) {
-var processedValue = pastedValue;
-
-//do something with it
-
-return processedValue;
-}
-});
-});
+        modalConfirm(function(confirm) {
+            if (confirm) {
+                $form.trigger('submit');
+            } else {
+                $("#result").html("NO CONFIRMADO");
+            }
+        });
     </script>
 </body>
 

@@ -44,7 +44,7 @@ include './View/resources/bootstrap_header.php';
                     </form>
                 </div>
                 <div class="card-footer">
-                    <p class="text-info">Não possui uma conta? <a href="/store-signup">Sign Up</a></p>
+                    <p class="text-info">Não possui uma conta? <a href="/show-signup">Sign Up</a></p>
                 </div>
             </div>
         </div>

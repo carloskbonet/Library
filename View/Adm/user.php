@@ -43,10 +43,10 @@ include("./View/Adm/navbar.php");
                             <div class="input-group">
                                 <form action="/edit-user" method="POST">
                                     <input type="hidden" name="id" value="<?= $user['id'] ?>">
-                                    <td><input class="form-control" type="text" name="name-edit" value="<?= $user['name'] ?>" required></td>
-                                    <td><input class="form-control" type="mail" name="email-edit" value="<?= $user['email'] ?>" required></td>
-                                    <td><input class="form-control" type="text" name="password-edit" value="<?= $user['password'] ?>" required></td>
-                                    <td><input class="form-control" type="number" name="phone-edit" value="<?= $user['phone'] ?>" required></td>
+                                    <td><input class="form-control" type="text" name="name-edit" value="<?= $user['name'] ?>" placeholder="Nome" minlength="3" maxlength="128" required></td>
+                                    <td><input class="form-control" type="mail" name="email-edit" value="<?= $user['email'] ?>" placeholder="E-mail" minlength="8" maxlength="64" required></td>
+                                    <td><input class="form-control" type="text" name="password-edit" value="<?= $user['password'] ?>" placeholder="Senha" minlength="6" maxlength="32" required></td>
+                                    <td><input class="form-control" type="number" name="phone-edit" value="<?= $user['phone'] ?>" id="phone" placeholder="(99) 99999-9999" title="e.g (99) 99999-9999" pattern="^\([0-9]{2}\)\s[0-9]{5}-[0-9]{4}$" min="10000000000" max="99999999999" required></td>
                                     <td>
                                         <select class="form-select w-100 h-100" name="status">
                                             <?php if ($user['is_admin'] == "t") { ?>
@@ -84,6 +84,7 @@ include("./View/Adm/navbar.php");
             </tbody>
         </table>
     </div>
+
 </body>
 
 </html>
