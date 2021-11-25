@@ -115,5 +115,16 @@ abstract class Model{
             return false;
         }
     }
+
+    public function verify_email(string $mail){
+        $this->database_connect();
+        $result = pg_query($this->dbconnection, "SELECT * FROM users WHERE email = '$mail'");
+        $this->disconnect();
+        if(pg_num_rows($result)){
+            return true; //disponivel
+        }else{
+            return false; //nao disponivel
+        }
+    }
 }
 ?>
