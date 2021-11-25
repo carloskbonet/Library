@@ -17,6 +17,7 @@
             <a href="/books" id="side-menu-button" class="button-book">Livros</a>
             <a href="/loan" id="side-menu-button" class="button-loan">Empréstimos</a>
             <a href="/historic" id="side-menu-button" class="button-historic">Histórico</a>
+            <a href="/users" id="side-menu-button" class="button-users">Usuários</a>
 
             <form class="disconnect-form" method="post" action="/disconnect">
                 <input class="disconnect-button" type="submit" value="Desconectar" />

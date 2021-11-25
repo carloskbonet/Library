@@ -1,47 +1,50 @@
 <html>
+<?php
+include './View/resources/bootstrap_header.php';
+?>
+
 <head>
     <title>Login</title>
+    <link rel="icon" href="../View/resources/images/icon-book.png">
     <link href="../View/css/login.css" rel="stylesheet">
+
+    <style>
+        body {
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(46,46,46,1) 15%, rgba(47,47,47,1) 25%, rgba(115,115,115,1) 45%, rgba(255,255,255,1) 50%, rgba(83,83,83,1) 56%, rgba(55,55,55,1) 70%, rgba(32,32,32,1) 85%, rgba(0,0,0,1) 100%);
+}
+    </style>
 </head>
 
 <body>
-    <div class="login">
-        <form action='/login' method="post" class="login-form">
-            <label id="form-field"> Email :<br>
-                <input type="text" name="email" id="form-input" required></label>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card" style="width: 400px;">
+                <div class="card-header">
+                    <h3>Login</h3>
+                </div>
+                <div class="card-body">
+                    <form action='/login' method="post">
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input class="form-control" type="mail" name="email" placeholder="E-mail" minlength="8" maxlength="64" required>
+                        </div>
 
-            <label id="form-field"> Senha :<br>
-                <input type="password" name="password" id="form-input" required></label>
-
-            <button type="submit" id="login-button">Entrar</button>
-
-        </form>
-
-        <div class="register">
-            <button id="register-button" onclick="document.getElementById('modal').style.display='block'">Registrar</button>
-
-            <div id="modal">
-                <div class="form-modal">
-                    <button id="close-button" onclick="document.getElementById('modal').style.display='none'">X</button>
-                    <form action="/signup" method="post" class="register-form">
-                        <label id="form-field-modal"> Email :<br>
-                            <input type="email" name="email-signup" id="form-input"></label>
-
-                        <label id="form-field-modal"> Senha :<br>
-                            <input type="password" name="password-signup" id="form-input"></label>
-
-                        <label id="form-field-modal"> Confirmar Senha :<br>
-                            <input type="password" name="password-confirm-signup" id="form-input"></label>
-
-                        <label id="form-field-modal"> Nome :<br>
-                            <input type="text" name="name-signup" id="form-input"></label>
-
-                        <label id="form-field-modal"> Telefone :<br>
-                            <input type="tel" name="phone-signup" id="form-input"></label>
-
-                        <button type="submit" id="register-button-modal">Registrar</button>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input class="form-control" type="password" name="password" placeholder="Password" minlength="6" maxlength="32" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn float-right btn-outline-secondary" value="Entrar">
+                        </div>
                     </form>
-
+                </div>
+                <div class="card-footer">
+                    <p class="text-info">Não possui uma conta? <a href="/show-signup">Sign Up</a></p>
                 </div>
             </div>
         </div>

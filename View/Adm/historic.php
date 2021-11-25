@@ -1,35 +1,56 @@
 <html>
 <?php
-include("./View/Adm/home.php");
+include("./View/home.php");
 ?>
 
 <head>
     <title>Historic</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../View/css/books.css" rel="stylesheet">
+    <style>
+        th {
+            color: white;
+        }
+
+        td {
+            color: white;
+        }
+    </style>
 </head>
 
+
 <body>
-    <div class="container">
-        <?php foreach ($loans as $loan) { ?>
-            <a for="open-modal">
-                <div class="book-card" onclick="<?php $id = $loan['id']; ?>">
-                    <img src="../View/resources/images/icon-book.png">
-                    <label><?= $loan['name'] ?></label>
-
-                    <input type="checkbox" id="open-modal" class="open-modal">
-                    <div id="modal-loan">
-                        <div class="modal-content">
-                            <label id="modal-label">ID do usuário:<br> <?= $loan['user_id'] ?></label>
-                            <label id="modal-label">Empréstimo:<br> <?= $loan['date_start'] ?></label>
-                            <label id="modal-label">Devolução:<br> <?= $loan['date_end'] ?></label>
-                            <label id="modal-label">Devolvido em:<br> <?= $loan['deleted_at'] ?></label>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        <?php } ?>
-
+    <div class="container position-inline overflow-auto">
+        <table class="table" style="margin-top: 11vh;">
+            <thead>
+                <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Usuário</th>
+                    <th scope="col">Data Aluguel</th>
+                    <th scope="col">Devolver Em</th>
+                    <th scope="col">Status da devolução</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($loans as $loan) { ?>
+                    <a>
+                        <tr>
+                            <td><img src="../View/resources/images/icon-book.png" style="width: 3vw;"></td>
+                            <div class="input-group">
+                                <td><?= $loan['name'] ?></td>
+                                <td><?= $loan['name2'] ?></td>
+                                <td><?= $loan['date_start'] ?></td>
+                                <td><?= $loan['date_end'] ?></td>
+                                <td>
+                                    <?php if ($loan['deleted_at'] != '') { ?>
+                                        <label> <?= $loan['deleted_at'] ?></label>
+                                    <?php } ?>
+                                </td>
+                            </div>
+                        </tr>
+                    </a>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </body>
 
